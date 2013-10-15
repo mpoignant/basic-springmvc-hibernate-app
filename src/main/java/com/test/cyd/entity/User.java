@@ -8,14 +8,14 @@ import java.util.Date;
 public class User {
   public static final String TABLENAME = "myuser";
 
-  public static final String USERNAME = "username";
+  public static final String USERID = "userId";
   public static final String FIRSTNAME = "firstname";
   public static final String LASTNAME = "lastname";
   public static final String CREATED_DATE = "created_date";
 
   @Id
-  @Column(name = USERNAME)
-  private String username;
+  @Column(name = USERID)
+  private String userId;
 
   @Column(name = FIRSTNAME, nullable = false)
   private String firstname;
@@ -29,18 +29,18 @@ public class User {
   public User() {
   }
 
-  public User(String username, String firstname, String lastname) {
-    this.username = username;
+  public User(String userId, String firstname, String lastname) {
+    this.userId = userId;
     this.firstname = firstname;
     this.lastname = lastname;
   }
 
-  public String getUsername() {
-    return username;
+  public String getUserId() {
+    return userId;
   }
 
-  public void setUsername(String username) {
-    this.username = username;
+  public void setUserId(String userId) {
+    this.userId = userId;
   }
 
   public String getFirstname() {
@@ -74,11 +74,11 @@ public class User {
 
     User user = (User) o;
 
-    return username.equals(user.username);
+    return userId.equals(user.userId);
   }
 
   @Override
   public int hashCode() {
-    return 42 * username.hashCode();
+    return 42 * userId.hashCode();
   }
 }

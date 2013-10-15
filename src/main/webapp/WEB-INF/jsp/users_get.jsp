@@ -7,8 +7,8 @@
 <%@ include file="include/flash.jsp" %>
 
 <div class="row">
-  <div class="span2">Username</div>
-  <div class="span2">${user.username}</div>
+  <div class="span2">UserID</div>
+  <div class="span2">${user.userId}</div>
 </div>
 <div class="row">
   <div class="span2">Firstname</div>

@@ -18,8 +18,8 @@ public class UserServiceImpl {
   @Autowired
   private SessionFactory sessionFactory;
 
-  public User findByUsername(String username) {
-    return (User) sessionFactory.getCurrentSession().get(User.class, username);
+  public User findByUserId(String userId) {
+    return (User) sessionFactory.getCurrentSession().get(User.class, userId);
   }
 
   @Transactional(readOnly = false)
@@ -28,16 +28,16 @@ public class UserServiceImpl {
   }
 
   @Transactional(readOnly = false)
-  public void deleteUser(String userName) {
-    User user = (User) sessionFactory.getCurrentSession().get(User.class, userName);
+  public void deleteUser(String userId) {
+    User user = (User) sessionFactory.getCurrentSession().get(User.class, userId);
     if (user != null) {
       sessionFactory.getCurrentSession().delete(user);
     }
   }
 
-  public List<User> findUsers(String username) {
+  public List<User> findUsers(String userId) {
     Criteria criteria = sessionFactory.getCurrentSession().createCriteria(User.class);
-    criteria.add(Restrictions.like(User.USERNAME, username, MatchMode.START));
+    criteria.add(Restrictions.like(User.USERID, userId, MatchMode.START));
     return criteria.list();
   }
 
